@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.samsthenerd.polycasting.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "hex.IXPlatNostractions",
+    "poly.items.HexItemsRegistryMixin",
+    "poly.items.RecipeMixin",
+    "poly.items.SimplePolyHexItems"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}
