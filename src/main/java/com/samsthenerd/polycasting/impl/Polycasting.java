@@ -1,9 +1,13 @@
 package com.samsthenerd.polycasting.impl;
 
+import at.petrak.hexcasting.api.HexAPI;
+import at.petrak.hexcasting.common.lib.HexCreativeTabs;
 import com.google.gson.JsonParser;
+import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +19,9 @@ import java.nio.charset.StandardCharsets;
 public class Polycasting implements ModInitializer {
     public static final String MOD_ID = "polycasting";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static ResourceLocation resLoc(String path){
+        return new ResourceLocation("polycasting", path);
+    }
 //    public static MinecraftServer server;
 
     @Override
@@ -23,7 +30,6 @@ public class Polycasting implements ModInitializer {
 //        GuiTextures.ADVANCED_COMPUTER.hashCode();
 //        TurtleModel.CRAFTING_MODEL.left();
 //        PatchConfig.instance.hashCode();
-//
 
         PolymerResourcePackUtils.addModAssets("hexcasting");
         PolymerResourcePackUtils.markAsRequired();
