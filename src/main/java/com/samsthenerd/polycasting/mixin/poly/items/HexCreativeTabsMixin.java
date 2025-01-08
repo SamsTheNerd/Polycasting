@@ -3,6 +3,7 @@ package com.samsthenerd.polycasting.mixin.poly.items;
 import at.petrak.hexcasting.api.HexAPI;
 import at.petrak.hexcasting.common.lib.HexBlocks;
 import at.petrak.hexcasting.common.lib.HexCreativeTabs;
+import at.petrak.hexcasting.common.lib.HexItems;
 import com.mojang.datafixers.util.Pair;
 import com.samsthenerd.polycasting.utils.poly.AutoPolymerBlockItem;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
@@ -23,6 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
@@ -43,14 +45,20 @@ public class HexCreativeTabsMixin {
 //        }
 //    }
 
+
+//    @Shadow
+//    @Final
+//    private static Map<ResourceLocation, CreativeModeTab> TABS;
+
     @Inject(
         at=@At("HEAD"),
         method="Lat/petrak/hexcasting/common/lib/HexCreativeTabs;register(Ljava/lang/String;Lnet/minecraft/world/item/CreativeModeTab$Builder;)Lnet/minecraft/world/item/CreativeModeTab;",
         cancellable = true
     )
     private static void polymerizeHexTabs(String name, CreativeModeTab.Builder tabBuilder, CallbackInfoReturnable<CreativeModeTab> cir) {
-        CreativeModeTab tab = tabBuilder.title(Component.translatable("itemGroup." + name)).build();
-        PolymerItemGroupUtils.registerPolymerItemGroup(HexAPI.modLoc("hexcasting"), tab);
-        cir.setReturnValue(tab);
+        tabBuilder.title(Component.translatable("itemGroup." + name));
+        tabBuilder.displayItems((itemDisplayParameters, output) -> {
+            HexItems.registerItems((item, resloc) -> output.accept(item));
+        });
     }
 }

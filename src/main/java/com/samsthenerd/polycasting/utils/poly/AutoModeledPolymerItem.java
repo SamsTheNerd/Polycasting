@@ -27,11 +27,15 @@ public interface AutoModeledPolymerItem extends PolymerItem, RegistryCallbackIte
 
     @Override
     default int getPolymerCustomModelData(ItemStack itemStack, ServerPlayer player) {
-        return MODELS.get(this).value();
+        return getPolymerCustomModelData();
     }
 
     default int getPolymerCustomModelData() {
-        return MODELS.get(this).value();
+        var model = MODELS.get(this);
+        if(model == null){
+            return -1;
+        }
+        return model.value();
     }
 
     @Override

@@ -1,0 +1,19 @@
+{
+  "providers":[
+    {
+      "file": "polycasting:gui/grid.png",
+      "ascent": 13,
+      "type": "bitmap",
+      "chars":[
+        "b"
+      ],
+      "height":256
+    },
+    {
+      "type": "space",
+      "advances": {
+        "0": -104
+      }
+    }
+  ]
+}

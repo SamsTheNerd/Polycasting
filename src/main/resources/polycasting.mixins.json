@@ -5,6 +5,7 @@
   "mixins": [
     "hex.IHaveNoClientAndIMustTHRNNK",
     "hex.IXPlatNostractions",
+    "poly.blocks.HexBlocksRegistryMixin",
     "poly.blocks.SimplePolyHexBlocks",
     "poly.items.HexCreativeTabsMixin",
     "poly.items.HexItemsRegistryMixin",

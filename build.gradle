@@ -53,6 +53,8 @@ dependencies {
 	}
 	modImplementation "vazkii.patchouli:Patchouli:$minecraft_version-$patchouli_version-FABRIC-SNAPSHOT"
 
+	modImplementation "com.samsthenerd.inline:inline-fabric:$minecraft_version-$project.inline_version"
+
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-api:$cardinal_components_version"
 	include "dev.onyxstudios.cardinal-components-api:cardinal-components-api:$cardinal_components_version"
 
@@ -66,6 +68,7 @@ dependencies {
 	modImplementation include("eu.pb4:polymer-core:$polymer_version")
 	modImplementation include("eu.pb4:polymer-blocks:$polymer_version")
 	modImplementation include("eu.pb4:polymer-resource-pack:$polymer_version")
+	modImplementation include("eu.pb4:sgui:$sgui_version")
 	modRuntimeOnly("eu.pb4:polymer-autohost:$polymer_version")
 }
 

@@ -32,7 +32,9 @@ public class Polycasting implements ModInitializer {
 //        PatchConfig.instance.hashCode();
 
         PolymerResourcePackUtils.addModAssets("hexcasting");
+        PolymerResourcePackUtils.addModAssets("polycasting");
         PolymerResourcePackUtils.markAsRequired();
+        PolycastingTextures.init();
 //        PolymerResourcePackUtils.addModAssets(MOD_ID);
 //        ServerLifecycleEvents.SERVER_STARTING.register((server1 -> {
 //            server = server1;
